@@ -1,4 +1,6 @@
-console.log("Connected");
+// Data
+const key = "todo";
+let data = [];
 
 // DOM elements
 const button = document.getElementById("taskButton");
@@ -8,25 +10,47 @@ const message = document.getElementById("taskMessage");
 // DOM events
 button.addEventListener("click", addTaskEvent);
 
-// Methods
+// Init
+start(key);
+//localStorage.removeItem(key);
+
+function start(key) {
+  const loadedData = loadData(key);
+
+  if (loadedData !== null) {
+    data = loadedData;
+
+    for (i = 0; i < data.length; i++) {
+      const item = createTaskItem(data[i], i);
+      list.appendChild(item);
+    }
+  }
+}
+
 function addTaskEvent(event) {
-  const taskName = prompt("Please write your task", "new task");
+  const name = prompt("Please write your task", "new task ");
 
-  if (taskName != null) {
-    const item = createTaskItem(taskName);
+  if (name != null) {
+    data.push(name);
+    saveData(key, data);
 
+    const item = createTaskItem(name, data.length);
     list.appendChild(item);
   }
 }
 
-function removeTaskEvent(event) {
+function removeTaskEvent(event, index) {
   const item = event.target.parentNode;
 
-  console.log(item);
+  data.splice(index, 1);
+  console.log("removeTaskEvent index", index);
+  console.log(data);
+  saveData(key, data);
   list.removeChild(item);
 }
 
-function createTaskItem(name) {
+function createTaskItem(name, index) {
+  console.log("createTaskItem index", index);
   const item = document.createElement("li");
   const input = document.createElement("input");
   const span = document.createElement("span");
@@ -35,8 +59,26 @@ function createTaskItem(name) {
   item.appendChild(span);
 
   input.setAttribute("type", "checkbox");
-  input.addEventListener("change", removeTaskEvent);
+  input.addEventListener("change", (event) => removeTaskEvent(event, index));
   span.innerText = name;
 
   return item;
+}
+
+function saveData(key, data) {
+  const serializedData = data.join();
+
+  localStorage.setItem(key, serializedData);
+}
+
+function loadData(key) {
+  const rawData = localStorage.getItem(key);
+  console.log(rawData);
+
+  if (rawData === null) {
+    return null;
+  }
+
+  const parsedData = rawData.split(",");
+  return parsedData;
 }
