@@ -1,4 +1,4 @@
-function createTaskItem(name, index) {
+function createTaskItem(name) {
   const item = document.createElement("li");
   const input = document.createElement("input");
   const span = document.createElement("span");

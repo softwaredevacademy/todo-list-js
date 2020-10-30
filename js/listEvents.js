@@ -5,7 +5,7 @@ function addTaskEvent() {
     let item;
 
     listInformation.push(name);
-    item = createTaskItem(name, listInformation.length);
+    item = createTaskItem(name);
     listHTML.appendChild(item);
     saveData(localStorageKey, listInformation);
   }

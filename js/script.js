@@ -19,7 +19,7 @@ function start(key) {
     listInformation = localStorageInformation;
 
     for (i = 0; i < listInformation.length; i++) {
-      const item = createTaskItem(listInformation[i], i);
+      const item = createTaskItem(listInformation[i]);
 
       listHTML.appendChild(item);
     }
