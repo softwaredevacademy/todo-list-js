@@ -4,7 +4,7 @@ function createTaskItem(name, index) {
   const span = document.createElement("span");
 
   input.setAttribute("type", "checkbox");
-  input.addEventListener("change", (event) => removeTaskEvent(event, index));
+  input.addEventListener("change", removeTaskEvent);
   span.innerText = name;
 
   item.appendChild(input);
