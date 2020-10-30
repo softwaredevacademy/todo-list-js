@@ -1,27 +1,27 @@
 // Data
-const key = "todo";
-let data = [];
+const localStorageKey = "todo";
+let listInformation = [];
 
 // DOM elements
 const button = document.getElementById("taskButton");
-const list = document.getElementById("taskList");
+const listHTML = document.getElementById("taskList");
 
 // DOM events
 button.addEventListener("click", addTaskEvent);
 
 // Init
-start(key);
+start(localStorageKey);
 
 function start(key) {
-  const loadedData = loadData(key);
+  const localStorageInformation = loadData(key);
 
-  if (loadedData !== null) {
-    data = loadedData;
+  if (localStorageInformation !== null) {
+    listInformation = localStorageInformation;
 
-    for (i = 0; i < data.length; i++) {
-      const item = createTaskItem(data[i], i);
+    for (i = 0; i < listInformation.length; i++) {
+      const item = createTaskItem(listInformation[i], i);
 
-      list.appendChild(item);
+      listHTML.appendChild(item);
     }
   }
 }
@@ -32,19 +32,19 @@ function addTaskEvent() {
   if (name != null) {
     let item;
 
-    data.push(name);
-    item = createTaskItem(name, data.length);
-    list.appendChild(item);
-    saveData(key, data);
+    listInformation.push(name);
+    item = createTaskItem(name, listInformation.length);
+    listHTML.appendChild(item);
+    saveData(localStorageKey, listInformation);
   }
 }
 
 function removeTaskEvent(event, index) {
   const item = event.target.parentNode;
 
-  data.splice(index, 1);
-  list.removeChild(item);
-  saveData(key, data);
+  listInformation.splice(index, 1);
+  listHTML.removeChild(item);
+  saveData(localStorageKey, listInformation);
 }
 
 function createTaskItem(name, index) {
