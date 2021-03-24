@@ -11,7 +11,7 @@ function loadData(key) {
   let parsedData;
 
   if (rawData === null || rawData === "") {
-    return null;
+    return [];
   }
 
   parsedData = rawData.split(",");

@@ -12,11 +12,8 @@ function start(key, titles, ulList) {
   const storageData = loadData(key);
 
   button.addEventListener("click", onAddTask);
-
-  if (storageData !== null) {
-    titles.push(...storageData);
-    displayItems(titles, ulList);
-  }
+  titles.push(...storageData);
+  displayItems(titles, ulList);
 }
 
 function displayItems(titles, html) {
