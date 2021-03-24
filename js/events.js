@@ -2,14 +2,12 @@
 
 function onAddTask() {
   const title = prompt("Please write your task", "new task ");
+  const item = createItem(title, onRemoveTask);
+  if (!title) return;
 
-  if (title != null) {
-    const item = createItem(title, onRemoveTask);
-
-    titles.push(title);
-    ulList.appendChild(item);
-    saveData(storageKey, titles);
-  }
+  titles.push(title);
+  ulList.appendChild(item);
+  saveData(storageKey, titles);
 }
 
 function onRemoveTask(event) {

@@ -1,8 +1,8 @@
 // Properties
 const storageKey = "todo";
 const titles = [];
-const ulList = document.getElementById("taskList");
-const button = document.getElementById("taskButton");
+const ulList = document.getElementById("task-list");
+const button = document.getElementById("task-button");
 
 // Init
 start(storageKey, titles, ulList);
