@@ -1,10 +1,10 @@
 // Data
 const localStorageKey = "todo";
-let listInformation = [];
+let listTitles = [];
 
 // DOM elements
-const button = document.getElementById("taskButton");
 const listHTML = document.getElementById("taskList");
+const button = document.getElementById("taskButton");
 
 // DOM events
 button.addEventListener("click", addTaskEvent);
@@ -16,10 +16,10 @@ function start(key) {
   const localStorageInformation = loadData(key);
 
   if (localStorageInformation !== null) {
-    listInformation = localStorageInformation;
+    listTitles = localStorageInformation;
 
-    for (i = 0; i < listInformation.length; i++) {
-      const item = createTaskItem(listInformation[i]);
+    for (i = 0; i < listTitles.length; i++) {
+      const item = createTaskItem(listTitles[i]);
 
       listHTML.appendChild(item);
     }

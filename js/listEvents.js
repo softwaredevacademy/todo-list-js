@@ -4,10 +4,10 @@ function addTaskEvent() {
   if (title != null) {
     let item;
 
-    listInformation.push(title);
+    listTitles.push(title);
     item = createTaskItem(title);
     listHTML.appendChild(item);
-    saveData(localStorageKey, listInformation);
+    saveData(localStorageKey, listTitles);
   }
 }
 
@@ -16,7 +16,7 @@ function removeTaskEvent(event) {
   const nodes = Array.from(item.closest("ol").children);
   const index = nodes.indexOf(item);
 
-  listInformation.splice(index, 1);
+  listTitles.splice(index, 1);
   listHTML.removeChild(item);
-  saveData(localStorageKey, listInformation);
+  saveData(localStorageKey, listTitles);
 }
