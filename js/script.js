@@ -1,22 +1,18 @@
-// Data
+// Properties
 const localStorageKey = "todo";
-let listTitles = [];
-
-// DOM elements
+const listTitles = [];
 const listHTML = document.getElementById("taskList");
-const button = document.getElementById("taskButton");
+const buttonHTML = document.getElementById("taskButton");
 
-// DOM events
-button.addEventListener("click", addTaskEvent);
-
-// Init
+// Methods
 start(localStorageKey);
 
 function start(key) {
   const localStorageInformation = loadData(key);
+  buttonHTML.addEventListener("click", addTaskEvent);
 
   if (localStorageInformation !== null) {
-    listTitles = localStorageInformation;
+    listTitles.push(...localStorageInformation);
 
     for (i = 0; i < listTitles.length; i++) {
       const item = createTaskItem(listTitles[i]);
