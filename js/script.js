@@ -11,10 +11,10 @@ start(storageKey, titles, ulList);
 // Methods
 // Pure
 function start(key, titles, ulList) {
-  const localStorageData = loadData(key);
+  const storageData = loadData(key);
 
-  if (localStorageData !== null) {
-    titles.push(...localStorageData);
+  if (storageData !== null) {
+    titles.push(...storageData);
     displayItems(titles, ulList);
   }
 }
