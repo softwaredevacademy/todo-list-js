@@ -1,12 +1,12 @@
 // Properties
-const localStorageKey = "todo";
+const storageKey = "todo";
 const titles = [];
 const ulList = document.getElementById("taskList");
 const button = document.getElementById("taskButton");
 
 // Init
 button.addEventListener("click", onAddTask);
-start(localStorageKey, titles, ulList);
+start(storageKey, titles, ulList);
 
 // Methods
 // Pure

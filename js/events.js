@@ -7,7 +7,7 @@ function onAddTask() {
 
     titles.push(title);
     ulList.appendChild(item);
-    saveData(localStorageKey, titles);
+    saveData(storageKey, titles);
   }
 }
 
@@ -19,5 +19,5 @@ function onRemoveTask(event) {
 
   titles.splice(index, 1);
   ulList.removeChild(item);
-  saveData(localStorageKey, titles);
+  saveData(storageKey, titles);
 }
