@@ -1,27 +1,29 @@
 // Properties
 const localStorageKey = "todo";
-const listTitles = [];
-const listHTML = document.getElementById("taskList");
-const buttonHTML = document.getElementById("taskButton");
+const titles = [];
+const ulList = document.getElementById("taskList");
+const button = document.getElementById("taskButton");
 
 // Init
-buttonHTML.addEventListener("click", onAddTask);
-start(localStorageKey);
+button.addEventListener("click", onAddTask);
+start(localStorageKey, titles, ulList);
 
 // Methods
-function start(key) {
+// Pure
+function start(key, titles, ulList) {
   const localStorageData = loadData(key);
 
   if (localStorageData !== null) {
-    listTitles.push(...localStorageData);
-    displayItems(listTitles);
+    titles.push(...localStorageData);
+    displayItems(titles, ulList);
   }
 }
 
-function displayItems(titles) {
+// Pure
+function displayItems(titles, html) {
   for (let i = 0; i < titles.length; i++) {
     const item = createTaskItem(titles[i], onRemoveTask);
 
-    listHTML.appendChild(item);
+    html.appendChild(item);
   }
 }
