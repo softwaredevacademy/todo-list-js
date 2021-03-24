@@ -1,4 +1,3 @@
-// Pure
 function createTaskItem(title, onDelete) {
   // Create HTML tags
   const item = document.createElement("li");
