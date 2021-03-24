@@ -16,10 +16,6 @@ function removeTaskEvent(event) {
   const nodes = Array.from(listHTML.children);
   const index = nodes.indexOf(item);
 
-  console.log("remove, nodes, listHTML");
-  console.log(nodes);
-  console.log(listHTML);
-
   listTitles.splice(index, 1);
   listHTML.removeChild(item);
   saveData(localStorageKey, listTitles);
