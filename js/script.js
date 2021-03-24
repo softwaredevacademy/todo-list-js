@@ -5,7 +5,7 @@ const listHTML = document.getElementById("taskList");
 const buttonHTML = document.getElementById("taskButton");
 
 // Init
-buttonHTML.addEventListener("click", addTaskEvent);
+buttonHTML.addEventListener("click", onAddTask);
 start(localStorageKey);
 
 // Methods
@@ -20,7 +20,7 @@ function start(key) {
 
 function displayItems(titles) {
   for (let i = 0; i < titles.length; i++) {
-    const item = createTaskItem(titles[i]);
+    const item = createTaskItem(titles[i], onRemoveTask);
 
     listHTML.appendChild(item);
   }

@@ -1,8 +1,8 @@
-function addTaskEvent() {
+function onAddTask() {
   const title = prompt("Please write your task", "new task ");
 
   if (title != null) {
-    const item = createTaskItem(title);
+    const item = createTaskItem(title, onRemoveTask);
 
     listTitles.push(title);
     listHTML.appendChild(item);
@@ -10,7 +10,7 @@ function addTaskEvent() {
   }
 }
 
-function removeTaskEvent(event) {
+function onRemoveTask(event) {
   const item = event.target.closest("li");
   const nodes = Array.from(listHTML.children);
   const index = nodes.indexOf(item);
