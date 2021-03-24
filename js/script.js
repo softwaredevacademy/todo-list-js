@@ -16,10 +16,10 @@ function start(key, titles, ulList) {
   displayItems(titles, ulList);
 }
 
-function displayItems(titles, html) {
+function displayItems(titles, ulList) {
   for (let i = 0; i < titles.length; i++) {
     const item = createTaskItem(titles[i], onRemoveTask);
 
-    html.appendChild(item);
+    ulList.appendChild(item);
   }
 }
