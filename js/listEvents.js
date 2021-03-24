@@ -1,11 +1,11 @@
 function addTaskEvent() {
-  const name = prompt("Please write your task", "new task ");
+  const title = prompt("Please write your task", "new task ");
 
-  if (name != null) {
+  if (title != null) {
     let item;
 
-    listInformation.push(name);
-    item = createTaskItem(name);
+    listInformation.push(title);
+    item = createTaskItem(title);
     listHTML.appendChild(item);
     saveData(localStorageKey, listInformation);
   }
