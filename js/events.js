@@ -2,10 +2,9 @@ function addTaskEvent() {
   const title = prompt("Please write your task", "new task ");
 
   if (title != null) {
-    let item;
+    const item = createTaskItem(title);
 
     listTitles.push(title);
-    item = createTaskItem(title);
     listHTML.appendChild(item);
     saveData(localStorageKey, listTitles);
   }

@@ -5,23 +5,22 @@ const listHTML = document.getElementById("taskList");
 const buttonHTML = document.getElementById("taskButton");
 
 // Init
+buttonHTML.addEventListener("click", addTaskEvent);
 start(localStorageKey);
 
 // Methods
 function start(key) {
-  const localStorageInformation = loadData(key);
+  const localStorageData = loadData(key);
 
-  buttonHTML.addEventListener("click", addTaskEvent);
-
-  if (localStorageInformation !== null) {
-    listTitles.push(...localStorageInformation);
+  if (localStorageData !== null) {
+    listTitles.push(...localStorageData);
     displayItems(listTitles);
   }
 }
 
-function displayItems(listTitles) {
-  for (i = 0; i < listTitles.length; i++) {
-    const item = createTaskItem(listTitles[i]);
+function displayItems(titles) {
+  for (let i = 0; i < titles.length; i++) {
+    const item = createTaskItem(titles[i]);
 
     listHTML.appendChild(item);
   }
