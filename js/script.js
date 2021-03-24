@@ -17,9 +17,9 @@ function start(key, titles, ulList) {
 }
 
 function displayItems(titles, ulList) {
-  for (let i = 0; i < titles.length; i++) {
-    const item = createItem(titles[i], onRemoveTask);
+  titles.map((title) => {
+    const item = createItem(title, onRemoveTask);
 
     ulList.appendChild(item);
-  }
+  });
 }
