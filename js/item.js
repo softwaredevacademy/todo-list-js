@@ -1,4 +1,4 @@
-function createTaskItem(title, onDelete) {
+function createItem(title, onDelete) {
   // Create HTML tags
   const item = document.createElement("li");
   const input = document.createElement("input");

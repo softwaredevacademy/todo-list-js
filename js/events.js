@@ -4,7 +4,7 @@ function onAddTask() {
   const title = prompt("Please write your task", "new task ");
 
   if (title != null) {
-    const item = createTaskItem(title, onRemoveTask);
+    const item = createItem(title, onRemoveTask);
 
     titles.push(title);
     ulList.appendChild(item);

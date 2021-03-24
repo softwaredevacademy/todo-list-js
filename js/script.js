@@ -18,7 +18,7 @@ function start(key, titles, ulList) {
 
 function displayItems(titles, ulList) {
   for (let i = 0; i < titles.length; i++) {
-    const item = createTaskItem(titles[i], onRemoveTask);
+    const item = createItem(titles[i], onRemoveTask);
 
     ulList.appendChild(item);
   }
