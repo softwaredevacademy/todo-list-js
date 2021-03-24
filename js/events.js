@@ -1,4 +1,5 @@
-// Impure, depends on titles, ulList and storageKey
+// Note: Impure because depends on titles, ulList and storageKey
+
 function onAddTask() {
   const title = prompt("Please write your task", "new task ");
 
@@ -11,7 +12,6 @@ function onAddTask() {
   }
 }
 
-// Impure, depends on titles, ulList and storageKey
 function onRemoveTask(event) {
   const item = event.target.closest("li");
   const nodes = Array.from(ulList.children);
